@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>For My Amul ❤️</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <!-- Floating hearts container -->
+  <div id="hearts-container"></div>
 
   <!-- LOGIN PAGE -->
   <div id="login-page" class="page active">
     <div class="login-box">
       <h2>Welcome My Love 💖</h2>
-      <input type="text" id="username" placeholder="Enter your ID">
-      <input type="password" id="password" placeholder="Enter your Password">
+      <input type="text" id="username" placeholder="Enter your ID" />
+      <input type="password" id="password" placeholder="Enter your Password" />
       <button onclick="checkLogin()">Login</button>
       <p id="error-msg"></p>
     </div>
@@ -23,18 +26,7 @@
   <div id="letter-page" class="page">
     <div class="letter-container">
       <h1>My Amul, Sweet heart ❤️</h1>
-      <p class="letter-text">
-        I don’t know how to put this into perfect words… but I just want you to know from the deepest part of my heart — I love you. ❤️ I love you more than anything, more than anyone, more than I ever thought was possible.<br><br>
-        You are the most precious person in my life. Every moment I spend with you feels like a blessing. When I think about my future, I can’t see anything without you in it. I want you in all of it — in every smile, every tear, every fight, every hug 🤗, every success, and even the failures… I want us to go through everything together.<br><br>
-        There might be tough days ahead. Life is never always easy. But I promise, I will stand with you in every situation, through every storm. 🌧️ I don’t want to face life alone — I want us. You and me, hand in hand, no matter what comes our way. 🤝<br><br>
-        Please, Amul... don’t ever leave me. 🥺 Don’t walk away. You are my heart, my peace, my everything. Without you, I feel empty. 💔 I need you to stay, to believe in our love, just like I do. 💞<br><br>
-        Let’s try together to convince everyone. Let’s show our families that what we share is real, pure, and unbreakable. I believe, from the bottom of my soul, that if they truly see our love, they will understand and support us.<br><br>
-        Let’s build our future — one filled with love, understanding, and endless hugs 🤗❤️
-        Just you and me, forever and always.<br><br>
-        I will love you always, more than words, more than life itself. 💖<br><br>
-        With all my heart,<br>
-        <strong>Adhiiiiiiiiiiiiiiiiiiii 🤗❤️</strong>
-      </p>
+      <p class="letter-text" id="letter-text"></p>
       <button id="explore-btn" onclick="showGallery()">💗 Explore More 💗</button>
     </div>
   </div>
@@ -42,9 +34,7 @@
   <!-- GALLERY PAGE -->
   <div id="gallery-page" class="page">
     <h2>Our Beautiful Memories 💞</h2>
-    <div class="gallery-container" id="gallery">
-      <!-- Images and videos will be loaded automatically -->
-    </div>
+    <div class="gallery-container" id="gallery"></div>
   </div>
 
   <!-- LIGHTBOX -->
