@@ -15,13 +15,56 @@ body {
   align-items: center;
   color: #333;
   overflow-x: hidden;
+  position: relative;
 }
 
+/* Floating hearts */
+#hearts-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 9999;
+}
+
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: url('data:image/svg+xml;utf8,<svg fill="pink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') no-repeat center center;
+  background-size: contain;
+  opacity: 0.8;
+  animation: floatUp 5s linear infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-120vh) scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* PAGE BASE */
 .page {
   display: none;
   text-align: center;
   width: 100%;
   padding: 20px;
+  max-width: 800px;
+  z-index: 10;
+  position: relative;
+  background: rgba(255,255,255,0.9);
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(255, 182, 193, 0.5);
+  animation: fadeIn 1.5s ease forwards;
 }
 
 .page.active {
@@ -30,11 +73,9 @@ body {
 
 /* LOGIN */
 .login-box {
-  background: white;
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0 0 20px rgba(255, 105, 180, 0.4);
-  animation: fadeIn 1.5s ease;
 }
 
 .login-box input {
@@ -45,6 +86,7 @@ body {
   border: 2px solid pink;
   border-radius: 10px;
   text-align: center;
+  font-size: 1.1em;
 }
 
 .login-box button {
@@ -57,6 +99,7 @@ body {
   font-weight: bold;
   margin-top: 10px;
   transition: 0.3s;
+  font-size: 1.1em;
 }
 
 .login-box button:hover {
@@ -64,15 +107,6 @@ body {
 }
 
 /* LETTER */
-.letter-container {
-  max-width: 700px;
-  background: rgba(255,255,255,0.9);
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 0 25px rgba(255, 182, 193, 0.5);
-  animation: fadeIn 2s ease;
-}
-
 .letter-container h1 {
   font-family: 'Dancing Script', cursive;
   color: #ff4b8a;
@@ -81,9 +115,16 @@ body {
 
 .letter-text {
   line-height: 1.8;
-  font-size: 1.1em;
-  text-align: left;
+  font-size: 1.15em;
   color: #444;
+  min-height: 280px;
+  white-space: pre-wrap;
+  text-align: left;
+  margin: 0 auto;
+  max-width: 700px;
+  font-family: 'Georgia', serif;
+  letter-spacing: 0.5px;
+  user-select: none;
 }
 
 #explore-btn {
@@ -93,7 +134,7 @@ body {
   border-radius: 20px;
   padding: 15px 40px;
   margin-top: 30px;
-  font-size: 1.2em;
+  font-size: 1.3em;
   cursor: pointer;
   transition: all 0.3s;
   box-shadow: 0 0 20px rgba(255,105,180,0.4);
@@ -113,20 +154,18 @@ body {
   padding: 20px;
 }
 
-.gallery-container img,
-.gallery-container video {
+.gallery-item {
   width: 250px;
   height: 180px;
   object-fit: cover;
   border-radius: 15px;
   cursor: pointer;
-  transition: 0.3s;
   box-shadow: 0 0 15px rgba(255,182,193,0.6);
+  transition: transform 0.3s ease;
 }
 
-.gallery-container img:hover,
-.gallery-container video:hover {
-  transform: scale(1.1);
+.gallery-item:hover {
+  transform: scale(1.05);
 }
 
 /* LIGHTBOX */
@@ -145,7 +184,7 @@ body {
 #lightbox-content img,
 #lightbox-content video {
   max-width: 90%;
-  max-height: 90%;
+  max-height: 90vh;
   border-radius: 10px;
 }
 
